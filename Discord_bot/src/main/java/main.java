@@ -13,7 +13,7 @@ public class main extends ListenerAdapter {
     public static void main(String[] args) throws LoginException {
 
         // 기본 jda를 만들고
-        JDA jda = JDABuilder.createDefault("ODY5OTE1OTIwOTM4NzA0OTU4.YQFKVQ.7Ash4KGCDmIvtygl11L2OexiU90").build();
+        JDA jda = JDABuilder.createDefault("ODY5OTE1OTIwOTM4NzA0OTU4.YQFKVQ.eloF3lATwuypjm6GertkdJaa2wM").build();
 
         // jda에 이벤트를 감지하는 리스너를 넣는다.
         jda.addEventListener(new main());
