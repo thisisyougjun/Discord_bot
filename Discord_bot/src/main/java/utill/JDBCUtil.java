@@ -1,3 +1,5 @@
+package uitl;
+
 import java.sql.*;
 
 public class JDBCUtil {
