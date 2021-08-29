@@ -1,4 +1,4 @@
-package uitl;
+package utill;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -35,7 +35,7 @@ public class TimeTable {
 
         int dayOfWeek = date.getDayOfWeek().getValue(); //요일을 받아온다.
 
-        String sql = "SELECT * FROM time WHERE class = ? AND day = ? ORDER BY period";
+        String sql = "SELECT * FROM class_table WHERE class = ? AND day = ? ORDER BY period";
 
         Connection con = JDBCUtil.getConnection();
         if(con == null) {
