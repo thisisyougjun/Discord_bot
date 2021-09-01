@@ -3,7 +3,6 @@ package listener;
 import net.dv8tion.jda.api.entities.MessageChannel;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
-import org.apache.logging.log4j.message.Message;
 import utill.TimeTable;
 
 public class LunchListener extends ListenerAdapter {
@@ -40,19 +39,23 @@ public class LunchListener extends ListenerAdapter {
                     break;
                 case "time":
                     String[]params =param.split(" ");
-                    if (params.length != 2){
-                        sayMsg(e.getChannel(), "시간표 조회 : !yy time 날짜(20190920) 반(1또는 2) 으로 입력하세요");
+                    if (params.length != 2 ){
+                        sayMsg(e.getChannel(), "시간표조회 : !yy time 날짜(20190920) 반(1또는 2) 으로 입력하세요");
                     }else{
-                        sayMsg(e.getChannel(),tt.getTime(params[0], params[1]));
+                        sayMsg(e.getChannel(),  tt.getTime(params[0], params[1]));
                     }
             }
+
         }
+
 
     }
     private void sayMsg(MessageChannel channel, String msg){
         channel.sendMessage(msg).queue();
+
     }
     public LunchListener(){
+
         tt =new TimeTable();
     }
 }

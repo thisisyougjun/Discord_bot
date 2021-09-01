@@ -16,9 +16,9 @@ public class TimeTable {
         } catch (Exception e) {
             return "올바른 반번호가 아닙니다";
         }
-        if(dateString.length() != 8) {
+        if (dateString.length() != 8) {
             return "날짜 형식이 일치하지 않습니다.";
-        }else if(classNumber <= 0 || classNumber > 2) {
+        } else if (classNumber <= 0 || classNumber > 2) {
             return "해당하는 반은 존재하지 않습니다.";
         }
 
@@ -35,10 +35,10 @@ public class TimeTable {
 
         int dayOfWeek = date.getDayOfWeek().getValue(); //요일을 받아온다.
 
-        String sql = "SELECT * FROM class_table WHERE class = ? AND day = ? ORDER BY period";
+        String sql = "SELECT * FROM class_table WHERE CLASS =? AND day = ? ORDER BY PERIOD";
 
         Connection con = JDBCUtil.getConnection();
-        if(con == null) {
+        if (con == null) {
             return "데이터베이스 연결에 문제가 있습니다.";
         }
 
@@ -49,11 +49,11 @@ public class TimeTable {
             pstmt.setInt(1, classNumber);
             pstmt.setInt(2, dayOfWeek);
             rs = pstmt.executeQuery();
-
-            while(rs.next()) {
+            while (rs.next()) {
                 int period = rs.getInt("period");
                 String value = rs.getString("value");
                 result += period + "교시 : " + value + "\n";
+
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -67,3 +67,6 @@ public class TimeTable {
         return result;
     }
 }
+
+
+
