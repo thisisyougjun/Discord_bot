@@ -18,7 +18,7 @@ public class LunchListener extends ListenerAdapter {
         if (msg.startsWith("!yy")){
             int idx =msg.indexOf(" ");
             if (idx <0){
-                sayMsg(e.getChannel(), "올바른 명령어를 입력해주세요");
+                sayMsg(e.getChannel(), "(ex: !yy 도움말)입력 해서 도움말을 확인해주세요!)");
                 return;
             }
             String cmd =msg.substring(idx+1);
@@ -30,6 +30,19 @@ public class LunchListener extends ListenerAdapter {
                 cmd = cmd.substring(0,paramIdx);
             }
             switch (cmd){
+                case "도움말":
+                    if (param.isEmpty()){
+                        sayMsg(e.getChannel(),"(ex: !yy echo 할말) 입력하면 따라 합니다");
+                        sayMsg(e.getChannel(),"(ex: !yy time 20210901 2) 입력하면 14반의 시간표가 나옵니다");
+                        sayMsg(e.getChannel(),"아직 초기 봇이라 매우 불안정 합니다!");
+                    }
+                    break;
+
+                case " ":{
+                    if (param.isEmpty()){
+                        sayMsg(e.getChannel(), "(ex: !yy 도움말)입력 해서 도움말을 확인해주세요!)");
+                    }
+                }
                 case "echo":
                     if (param.isEmpty()){
                         sayMsg(e.getChannel(),"echo는 메아리할 말을 입력해야 합니다.");
@@ -44,6 +57,7 @@ public class LunchListener extends ListenerAdapter {
                     }else{
                         sayMsg(e.getChannel(),  tt.getTime(params[0], params[1]));
                     }
+                    break;
             }
 
         }
