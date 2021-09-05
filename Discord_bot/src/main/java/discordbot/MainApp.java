@@ -18,7 +18,7 @@ public class MainApp extends ListenerAdapter {
         BasicConfigurator.configure();
 
         // 기본 jda를 만들고
-        JDA jda = JDABuilder.createDefault("ODY5OTE1OTIwOTM4NzA0OTU4.YQFKVQ.eloF3lATwuypjm6GertkdJaa2wM").build();
+        JDA jda = JDABuilder.createDefault("token").build();
 
         // jda에 이벤트를 감지하는 리스너를 넣는다.
         jda.addEventListener(new MainApp());
