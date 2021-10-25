@@ -34,7 +34,7 @@ public class TimeTable {
         }
 
         int dayOfWeek = date.getDayOfWeek().getValue(); //요일을 받아온다.
-
+//DAY가 한글이라서 오류 발생 할수도 있음 확인 해봐랑
         String sql = "SELECT * FROM class_table WHERE CLASS =? AND day = ? ORDER BY PERIOD";
 
         Connection con = JDBCUtil.getConnection();
